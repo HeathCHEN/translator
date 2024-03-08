@@ -1,9 +1,12 @@
 package io.github.heatchen.translator.controller;
 
-import com.deepl.api.Translator;
+import com.deepl.api.DeepLException;
 import io.github.heatchen.translator.domain.AjaxResult;
-import io.github.heatchen.translator.domain.DeeplTranslateRequestDto;
+import io.github.heatchen.translator.domain.baidu.BaiduTranslateRequestDto;
+import io.github.heatchen.translator.domain.deepl.DeeplTranslateRequestDto;
+import io.github.heatchen.translator.service.BaiDuService;
 import io.github.heatchen.translator.service.DeepLService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,14 +15,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/translator")
+@Slf4j
 public class TranslatorController {
 
     @Autowired
     DeepLService deepLService;
 
+    @Autowired
+    BaiDuService baiDuService;
+
+    /**
+     * deepl翻译器
+     * @param deeplTranslateRequestDto
+     * @return {@link AjaxResult }
+     * @throws DeepLException
+     * @throws InterruptedException
+     * @author HeathCHEN
+     */
     @PostMapping("/deepl")
-    public AjaxResult deepLTranslate(@RequestBody DeeplTranslateRequestDto deeplTranslateRequestDto) {
+    public AjaxResult deepLTranslate(@RequestBody DeeplTranslateRequestDto deeplTranslateRequestDto) throws DeepLException, InterruptedException {
         return AjaxResult.success(deepLService.deepLTranslate(deeplTranslateRequestDto));
     }
+
+
+    /**
+     * baidu翻译器
+     * @param baiduTranslateRequestDto
+     * @return {@link AjaxResult }
+     * @author HeathCHEN
+     */
+    @PostMapping("/baidu")
+    public AjaxResult baiduTranslate(@RequestBody BaiduTranslateRequestDto baiduTranslateRequestDto) {
+        return AjaxResult.success(baiDuService.baiduTranslate(baiduTranslateRequestDto));
+    }
+
 
 }
