@@ -10,7 +10,10 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import retrofit2.Call;
+import retrofit2.Response;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,9 +45,18 @@ public class BaiDuService {
 
     public BaiduTranslateResponseDto baiduTranslate(BaiduTranslateRequestDto baiduTranslateRequestDto){
         Map<String, String> params = buildParams(baiduTranslateRequestDto.getText(),baiduTranslateRequestDto.getSourceLang(),baiduTranslateRequestDto.getTargetLang());
-        String result = baiduTransApi.baiduTrans(params);
+        Call<String> call = baiduTransApi.baiduTrans(params);
+        Response<String> execute = null;
+        try {
+            execute = call.execute();
+        } catch (IOException e) {
+            log.error(execute.message());
+            log.error(execute.body());
+            log.error(execute.errorBody().toString());
+            e.printStackTrace();
+        }
         BaiduTranslateResponseDto baiduTranslateResponseDto = new BaiduTranslateResponseDto();
-        baiduTranslateResponseDto.setText(result);
+        baiduTranslateResponseDto.setText(execute.body());
         return baiduTranslateResponseDto;
     }
 }
