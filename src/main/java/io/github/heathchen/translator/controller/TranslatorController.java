@@ -1,12 +1,13 @@
 package io.github.heathchen.translator.controller;
 
 import com.deepl.api.DeepLException;
+import io.github.heathchen.mybatisplus.util.utils.MyBatisPlusUtil;
 import io.github.heathchen.translator.domain.AjaxResult;
 import io.github.heathchen.translator.domain.baidu.BaiduTranslateRequestDto;
 import io.github.heathchen.translator.domain.deepl.DeeplTranslateRequestDto;
 import io.github.heathchen.translator.domain.gen.TranslateLanguage;
-import io.github.heathchen.translator.service.BaiDuService;
-import io.github.heathchen.translator.service.DeepLService;
+import io.github.heathchen.translator.service.impl.BaiDuService;
+import io.github.heathchen.translator.service.impl.DeepLService;
 import io.github.heathchen.translator.service.TranslateLanguageService;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -57,14 +58,27 @@ public class TranslatorController {
     }
 
 
-
-
-
+    /**
+     * 增加翻译语言
+     * @param translateLanguage
+     * @return {@link AjaxResult }
+     * @author HeathCHEN
+     */
     @PostMapping("/gen/addTranslateLanguage")
     public AjaxResult addTranslateLanguage(@RequestBody TranslateLanguage translateLanguage) {
         return AjaxResult.success(translateLanguageService.addTranslateLanguage(translateLanguage));
     }
 
+    /**
+     * 查询翻译语言
+     * @param translateLanguage
+     * @return {@link AjaxResult }
+     * @author HeathCHEN
+     */
+    @PostMapping("/gen/getTranslateLanguage")
+    public AjaxResult getTranslateLanguage(@RequestBody TranslateLanguage translateLanguage) {
+        return AjaxResult.success(MyBatisPlusUtil.queryByReflect(translateLanguage));
+    }
 
 
 }

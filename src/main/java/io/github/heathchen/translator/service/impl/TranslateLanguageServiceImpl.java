@@ -16,12 +16,11 @@ import org.springframework.stereotype.Service;
 public class TranslateLanguageServiceImpl extends ServiceImpl<TranslateLanguageMapper, TranslateLanguage>
         implements TranslateLanguageService {
 
-    @Autowired
-    TranslateLanguageService translateLanguageService;
+
 
     @Override
     public Boolean addTranslateLanguage(TranslateLanguage translateLanguage) {
-        return translateLanguageService.addTranslateLanguage(translateLanguage);
+        return save(translateLanguage);
     }
 }
 

@@ -1,12 +1,14 @@
 server:
-  port: 8080
+  port: 8280
 spring:
   #===========================================
   #   数据库配置
   #===========================================
   datasource:
-    type:
-    password:
+    url: jdbc:postgresql://localhost:5432/transalte_datebase #数据库访问地址
+    username: postgres #数据库账号
+    password: root #数据库密码
+    driver-class-name: org.postgresql.Driver #数据库驱动类
 #===========================================
 #   retrofit
 #==========================================
@@ -26,15 +28,17 @@ retrofit:
 #===========================================
 mybatis-plus:
   configuration:
-    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     cache-enabled: true
     map-underscore-to-camel-case: false
   mapper-locations: classpath*:/mapper/**/*.xml
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
-    id-type: 1
-    # Sequence序列接口实现类配置
-    key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+    id-type: 0
     #普通类中执行原生SQL
     enable-sql-runner: true
-#  typeAliasesPackage: com.erp.**.entities
+
+
+baidu:
+  appid: 20240308001987150
+  securityKey: oIabNhJlWQtWY9j8NhbS

@@ -1,4 +1,4 @@
-package io.github.heathchen.translator.service;
+package io.github.heathchen.translator.service.impl;
 
 import com.deepl.api.DeepLException;
 import com.deepl.api.TextResult;

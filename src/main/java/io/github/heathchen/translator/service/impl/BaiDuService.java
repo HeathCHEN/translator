@@ -1,4 +1,4 @@
-package io.github.heathchen.translator.service;
+package io.github.heathchen.translator.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import io.github.heathchen.translator.config.BaiduConfig;
