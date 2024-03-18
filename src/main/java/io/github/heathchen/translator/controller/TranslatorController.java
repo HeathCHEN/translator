@@ -4,9 +4,11 @@ import com.deepl.api.DeepLException;
 import io.github.heathchen.mybatisplus.util.utils.MyBatisPlusUtil;
 import io.github.heathchen.translator.domain.AjaxResult;
 import io.github.heathchen.translator.domain.baidu.BaiduTranslateRequestDto;
+import io.github.heathchen.translator.domain.bing.BingTranslateRequestDto;
 import io.github.heathchen.translator.domain.deepl.DeeplTranslateRequestDto;
 import io.github.heathchen.translator.domain.gen.TranslateLanguage;
 import io.github.heathchen.translator.service.impl.BaiDuService;
+import io.github.heathchen.translator.service.impl.BingService;
 import io.github.heathchen.translator.service.impl.DeepLService;
 import io.github.heathchen.translator.service.TranslateLanguageService;
 import lombok.AccessLevel;
@@ -29,6 +31,9 @@ public class TranslatorController {
 
     @Autowired
     BaiDuService baiDuService;
+
+    @Autowired
+    BingService bingService;
     @Autowired
     TranslateLanguageService translateLanguageService;
 
@@ -55,6 +60,17 @@ public class TranslatorController {
     @PostMapping("/baidu")
     public AjaxResult baiduTranslate(@RequestBody BaiduTranslateRequestDto baiduTranslateRequestDto) {
         return AjaxResult.success(baiDuService.baiduTranslate(baiduTranslateRequestDto));
+    }
+
+    /**
+     * bing翻译器
+     * @param bingTranslateRequestDto
+     * @return {@link AjaxResult }
+     * @author HeathCHEN
+     */
+    @PostMapping("/bing")
+    public AjaxResult bingTranslate(@RequestBody BingTranslateRequestDto bingTranslateRequestDto) {
+        return AjaxResult.success(bingService.bingTranslate(bingTranslateRequestDto));
     }
 
 

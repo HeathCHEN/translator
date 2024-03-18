@@ -42,3 +42,6 @@ mybatis-plus:
 baidu:
   appid: 20240308001987150
   securityKey: oIabNhJlWQtWY9j8NhbS
+bing:
+  key: df7ee063ed604e7a96d06ddd82bd55b0
+  location: Japan East
