@@ -1,4 +1,4 @@
-package io.github.heatchen.translator.retrofit;
+package io.github.heathchen.translator.retrofit;
 
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.log.LogLevel;

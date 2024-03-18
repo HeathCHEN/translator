@@ -1,7 +1,6 @@
-package io.github.heatchen.translator.domain;
+package io.github.heathchen.translator.domain;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpStatus;
 
 import java.util.HashMap;

@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package io.github.heatchen.translator.util.baidu;
+package io.github.heathchen.translator.util.baidu;
 
 import java.io.*;
 import java.security.MessageDigest;

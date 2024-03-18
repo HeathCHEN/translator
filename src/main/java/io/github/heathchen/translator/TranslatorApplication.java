@@ -1,6 +1,5 @@
-package io.github.heatchen.translator;
+package io.github.heathchen.translator;
 
-import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

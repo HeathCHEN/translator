@@ -1,4 +1,4 @@
-package io.github.heatchen.translator.domain.baidu;
+package io.github.heathchen.translator.domain.baidu;
 
 import lombok.AccessLevel;
 import lombok.Data;

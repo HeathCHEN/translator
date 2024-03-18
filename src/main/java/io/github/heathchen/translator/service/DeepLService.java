@@ -1,11 +1,11 @@
-package io.github.heatchen.translator.service;
+package io.github.heathchen.translator.service;
 
 import com.deepl.api.DeepLException;
 import com.deepl.api.TextResult;
 import com.deepl.api.Translator;
-import io.github.heatchen.translator.config.DeepLConfig;
-import io.github.heatchen.translator.domain.deepl.DeeplTranslateRequestDto;
-import io.github.heatchen.translator.domain.deepl.DeeplTranslateResponseDto;
+import io.github.heathchen.translator.config.DeepLConfig;
+import io.github.heathchen.translator.domain.deepl.DeeplTranslateRequestDto;
+import io.github.heathchen.translator.domain.deepl.DeeplTranslateResponseDto;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;

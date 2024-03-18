@@ -1,4 +1,4 @@
-package io.github.heatchen.translator.domain.deepl;
+package io.github.heathchen.translator.domain.deepl;
 
 import lombok.AccessLevel;
 import lombok.Data;

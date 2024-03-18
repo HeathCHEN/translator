@@ -1,11 +1,11 @@
-package io.github.heatchen.translator.controller;
+package io.github.heathchen.translator.controller;
 
 import com.deepl.api.DeepLException;
-import io.github.heatchen.translator.domain.AjaxResult;
-import io.github.heatchen.translator.domain.baidu.BaiduTranslateRequestDto;
-import io.github.heatchen.translator.domain.deepl.DeeplTranslateRequestDto;
-import io.github.heatchen.translator.service.BaiDuService;
-import io.github.heatchen.translator.service.DeepLService;
+import io.github.heathchen.translator.domain.AjaxResult;
+import io.github.heathchen.translator.domain.baidu.BaiduTranslateRequestDto;
+import io.github.heathchen.translator.domain.deepl.DeeplTranslateRequestDto;
+import io.github.heathchen.translator.service.BaiDuService;
+import io.github.heathchen.translator.service.DeepLService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +48,9 @@ public class TranslatorController {
     public AjaxResult baiduTranslate(@RequestBody BaiduTranslateRequestDto baiduTranslateRequestDto) {
         return AjaxResult.success(baiDuService.baiduTranslate(baiduTranslateRequestDto));
     }
+
+
+
 
 
 }
