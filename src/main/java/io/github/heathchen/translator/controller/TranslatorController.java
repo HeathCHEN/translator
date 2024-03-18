@@ -4,8 +4,12 @@ import com.deepl.api.DeepLException;
 import io.github.heathchen.translator.domain.AjaxResult;
 import io.github.heathchen.translator.domain.baidu.BaiduTranslateRequestDto;
 import io.github.heathchen.translator.domain.deepl.DeeplTranslateRequestDto;
+import io.github.heathchen.translator.domain.gen.TranslateLanguage;
 import io.github.heathchen.translator.service.BaiDuService;
 import io.github.heathchen.translator.service.DeepLService;
+import io.github.heathchen.translator.service.TranslateLanguageService;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/translator")
 @Slf4j
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TranslatorController {
 
     @Autowired
@@ -23,6 +28,8 @@ public class TranslatorController {
 
     @Autowired
     BaiDuService baiDuService;
+    @Autowired
+    TranslateLanguageService translateLanguageService;
 
     /**
      * deepl翻译器
@@ -50,6 +57,13 @@ public class TranslatorController {
     }
 
 
+
+
+
+    @PostMapping("/gen/addTranslateLanguage")
+    public AjaxResult addTranslateLanguage(@RequestBody TranslateLanguage translateLanguage) {
+        return AjaxResult.success(translateLanguageService.addTranslateLanguage(translateLanguage));
+    }
 
 
 

@@ -1,4 +1,4 @@
-package io.github.heathchen.translator.domain;
+package io.github.heathchen.translator.domain.gen;
 
 import lombok.AccessLevel;
 import lombok.Data;

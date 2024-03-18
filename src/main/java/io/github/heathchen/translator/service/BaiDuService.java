@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import io.github.heathchen.translator.config.BaiduConfig;
 import io.github.heathchen.translator.domain.baidu.BaiduTranslateRequestDto;
 import io.github.heathchen.translator.domain.baidu.BaiduTranslateResponseDto;
-import io.github.heathchen.translator.domain.GeneralTranslateResponse;
+import io.github.heathchen.translator.domain.gen.GeneralTranslateResponse;
 import io.github.heathchen.translator.retrofit.BaiduTransApi;
 import io.github.heathchen.translator.util.baidu.MD5;
 import lombok.AccessLevel;
